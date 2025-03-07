@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+yfinance
+plotly
+alpha-vantage
+stocknews
+scikit-learn
+tensorflow
+statsmodels
