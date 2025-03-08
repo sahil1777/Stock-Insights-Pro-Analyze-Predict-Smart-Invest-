@@ -8,3 +8,4 @@ stocknews
 scikit-learn
 tensorflow
 statsmodels
+requests
