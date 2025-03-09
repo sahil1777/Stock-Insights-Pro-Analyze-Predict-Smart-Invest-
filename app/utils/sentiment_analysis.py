@@ -109,12 +109,11 @@ def create_sentiment_distribution_chart(vader_results):
         color_discrete_map=color_map
     )
     
-    # Reduce the size of the pie chart
     fig.update_layout(
         autosize=False,
-        width=150,  # Set the width of the chart
-        height=150,  # Set the height of the chart
-        margin=dict(l=20, r=20, t=30, b=20)  # Adjust margins
+        width=150,  
+        height=150,  
+        margin=dict(l=20, r=20, t=30, b=20)  
     )
     
     return fig

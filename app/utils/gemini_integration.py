@@ -3,7 +3,6 @@ import google.generativeai as genai
 # Initialize Gemini
 def initialize_gemini(api_key):
     genai.configure(api_key=api_key)
-    # model = genai.GenerativeModel('text-bison-001')  # Use the correct model name
     model = genai.GenerativeModel('gemini-1.5-pro')
     return model
 

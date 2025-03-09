@@ -9,11 +9,10 @@ def fetch_stock_data(ticker, start_date, end_date):
         if data.empty:
             raise ValueError("No data found for the given ticker and date range.")
         
-        # Flatten MultiIndex column names
-        if isinstance(data.columns, pd.MultiIndex):  # Ensure 'pd' is defined
+
+        if isinstance(data.columns, pd.MultiIndex):  
             data.columns = [' '.join(col).strip() for col in data.columns.values]
         
-        # Add stock name to the DataFrame
         data["Name"] = yf.Ticker(ticker).info.get("longName", ticker)
         return data
     except Exception as e:

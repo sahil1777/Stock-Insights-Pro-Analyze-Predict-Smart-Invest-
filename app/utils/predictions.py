@@ -10,34 +10,13 @@ from statsmodels.tsa.arima.model import ARIMA
 
 
 def lstm_prediction(data, prediction_days):
-    # Load custom CSS
     try:
         with open("app/assets/styles.css") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     except FileNotFoundError:
         st.error("CSS file not found. Please ensure 'app/assets/styles.css' exists.")
 
-    # Create a flex container for the header and spinner
-    # st.markdown(
-    #     """
-    #     <div style="display: flex; align-items: center;">
-    #         <h3 style="margin: 0;">LSTM Model Prediction</h3>
-    #         <div id="spinner-placeholder"></div>
-    #     </div>
-    #     """,
-    #     unsafe_allow_html=True,
-    # )
-
-    # Add the spinner to the placeholder
-    # loading_placeholder = st.empty()
-    # loading_placeholder.markdown(
-    #     """
-    #     <div class="lds-dual-ring"></div>
-    #     """,
-    #     unsafe_allow_html=True,
-    # )
-
-    # Find the column name that contains 'Close'
+    
     close_column = [col for col in data.columns if "Close" in col][0]
 
     # Extract the 'Close' column
@@ -47,9 +26,6 @@ def lstm_prediction(data, prediction_days):
     scaler = MinMaxScaler(feature_range=(0, 1))
     scaled_data = scaler.fit_transform(close_data)
 
-    # Debug: Check shapes
-    # st.write("Close Data Shape:", close_data.shape)
-    # st.write("Scaled Data Shape:", scaled_data.shape)
 
     # Ensure sufficient data for training
     sequence_length = 60  # Use 60 days of data to predict the next day
@@ -64,7 +40,6 @@ def lstm_prediction(data, prediction_days):
         y_train.append(scaled_data[i, 0])
     x_train, y_train = np.array(x_train), np.array(y_train)
 
-    # Debug: Check shapes
     # st.write("x_train Shape:", x_train.shape)
     # st.write("y_train Shape:", y_train.shape)
 
@@ -114,8 +89,6 @@ def lstm_prediction(data, prediction_days):
     # st.write("Shape of predictions:", predictions.shape)
     # st.write("Length of predictions.flatten():", len(predictions.flatten()))
 
-    # Remove the loading animation
-    # loading_placeholder.empty()
 
     # Create a DataFrame for the predictions
     forecast_dates = pd.date_range(start=data.index[-1], periods=prediction_days + 1, freq="B")[1:]
@@ -133,32 +106,13 @@ def lstm_prediction(data, prediction_days):
     st.dataframe(forecast_df)
 
 def arima_prediction(data, prediction_days):
-    # Load custom CSS
+    
     try:
         with open("app/assets/styles.css") as f:
             st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
     except FileNotFoundError:
         st.error("CSS file not found. Please ensure 'app/assets/styles.css' exists.")
 
-    # Create a flex container for the header and spinner
-    # st.markdown(
-    #     """
-    #     <div style="display: flex; align-items: center;">
-    #         <h3 style="margin: 0;">ARIMA Model Prediction</h3>
-    #         <div id="spinner-placeholder"></div>
-    #     </div>
-    #     """,
-    #     unsafe_allow_html=True,
-    # )
-
-    # Add the spinner to the placeholder
-    # loading_placeholder = st.empty()
-    # loading_placeholder.markdown(
-    #     """
-    #     <div class="lds-dual-ring"></div>
-    #     """,
-    #     unsafe_allow_html=True,
-    # )
 
     # Find the column name that contains 'Close'
     close_column = [col for col in data.columns if "Close" in col][0]
@@ -190,8 +144,6 @@ def arima_prediction(data, prediction_days):
     forecast_dates = pd.date_range(start=data.index[-1], periods=prediction_days + 1, freq="B")[1:]
     forecast_df = pd.DataFrame({"Date": forecast_dates, "Forecast": forecast})
 
-    # Remove the loading animation
-    # loading_placeholder.empty()
 
     # Plot the predictions
     fig = px.line(forecast_df, x="Date", y="Forecast", title="ARIMA Forecast")

@@ -2,23 +2,23 @@
     background-color: #48cae4;
 }
 
-/* assets/styles.css */
+
 .lds-dual-ring {
     display: inline-block;
-    width: 30px;  /* Smaller size */
-    height: 30px;  /* Smaller size */
-    vertical-align: middle;  /* Align with the header */
+    width: 30px;  
+    height: 30px;  
+    vertical-align: middle; 
 }
 
 .lds-dual-ring:after {
     content: " ";
     display: block;
-    width: 24px;  /* Smaller size */
-    height: 24px;  /* Smaller size */
-    margin: 2px;  /* Smaller margin */
+    width: 24px;  
+    height: 24px;  
+    margin: 2px;  
     border-radius: 50%;
-    border: 3px solid red;  /* Red color */
-    border-color: red transparent red transparent;  /* Red color */
+    border: 3px solid red;  
+    border-color: red transparent red transparent;  
     animation: lds-dual-ring 1.2s linear infinite;
 }
 
