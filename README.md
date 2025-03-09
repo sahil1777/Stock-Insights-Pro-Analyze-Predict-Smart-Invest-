@@ -3,7 +3,9 @@
 Stock Insights Pro is a cutting-edge application designed to empower investors with advanced tools for real time stock market analysis, price prediction, and AI-driven investment recommendations. By leveraging state-of-the-art machine learning models, natural language processing (NLP), and comprehensive financial data integration, Stock Insights Pro provides users with actionable insights to make informed investment decisions.
 
 
+
 ## Features
+
 - Stock Data Visualization: Interactive charts for historical stock prices.
 - Financial Statements: Integration of income statements, balance sheets, and cash flow statements.
 - Price Prediction:
@@ -60,7 +62,7 @@ streamlit run app/main.py
     
 ## Usage/Examples
 
-```javascript
+```
 - Enter Stock Symbol: Input the stock ticker (e.g., AAPL, GOOGL).
 - Select Date Range: Choose the start and end dates for analysis.
 - Explore Features:
@@ -74,7 +76,7 @@ streamlit run app/main.py
 
 ## Project Structure
 
-```javascript
+```
 Stock_App/
 ├── app/
 │   ├── main.py                  # Main Streamlit application
@@ -94,7 +96,7 @@ Stock_App/
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute, please follow these steps:
-```javascript
+```
 1. Fork the repository.
 2. Create a new branch (git checkout -b feature/your-feature).
 3. Commit your changes (git commit -m "Add your feature").
